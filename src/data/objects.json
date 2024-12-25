@@ -1,0 +1,723 @@
+{
+  "objects": [
+    {
+      "id": "SBAG",
+      "name": "sandwich bag",
+      "synonyms": ["bag", "sack", "baggi"],
+      "description": "An elongated brown sack, smelling of hot peppers.",
+      "initialLocation": "KITCH",
+      "flags": {
+        "isContainer": true,
+        "isPortable": true,
+        "isFlammable": true
+      },
+      "contains": ["GARLI","FOOD"]
+    },
+    {
+      "id": "GARLI",
+      "name": "a clove of garlic",
+      "synonyms": ["garlic","clove"],
+      "description": "A pungent clove of garlic.",
+      "initialLocation": "SBAG",
+      "flags": {
+        "isPortable": true,
+        "isFood": true
+      }
+    },
+    {
+      "id": "FOOD",
+      "name": "a hot pepper sandwich",
+      "synonyms": ["sandwich", "lunch", "pepper", "dinner", "snack"],
+      "description": "A hot pepper sandwich that sets your mouth on fire.",
+      "initialLocation": "SBAG",
+      "flags": {
+        "isPortable": true,
+        "isFood": true
+      }
+    },
+    {
+      "id": "FDOOR",
+      "name": "the front door",
+      "synonyms": ["door","front door"],
+      "description": "A locked front door of the house, nailed shut from inside.",
+      "initialLocation": "WHOUS",
+      "flags": {
+        "isPortable": false,
+        "isFixedInPlace": true,
+        "isDoor": true,
+        "isOpenable": false,
+        "isOpen": false
+      }
+    },
+    {
+      "id": "WDOOR",
+      "name": "an old wooden door",
+      "synonyms": ["door", "wooden door", "wdoor"],
+      "description": "An old wooden door with a large hole in it.",
+      "initialLocation": "LROOM",
+      "flags": {
+        "isPortable": false,
+        "isFixedInPlace": true,
+        "isDoor": true,
+        "isOpenable": false
+      }
+    },
+    {
+      "id": "MAILB",
+      "name": "a small mailbox",
+      "synonyms": ["mailbox","box"],
+      "description": "A small mailbox by the west of the house.",
+      "initialLocation": "WHOUS",
+      "flags": {
+        "isPortable": false,
+        "isContainer": true,
+        "isOpenable": true,
+        "isOpen": false
+      }
+    },
+    {
+      "id": "WIND1",
+      "name": "the kitchen window (outside)",
+      "synonyms": ["window","wind1"],
+      "description": "A small window on the east wall of the house.",
+      "initialLocation": "EHOUS",
+      "flags": {
+        "isPortable": false,
+        "isFixedInPlace": true,
+        "isDoor": true,
+        "isOpenable": true,
+        "isOpen": false
+      }
+    },
+    {
+      "id": "WIND2",
+      "name": "the kitchen window (inside)",
+      "synonyms": ["window","wind2"],
+      "description": "A small window over the sink.",
+      "initialLocation": "KITCH",
+      "flags": {
+        "isPortable": false,
+        "isFixedInPlace": true,
+        "isDoor": true,
+        "isOpenable": true,
+        "isOpen": false
+      }
+    },
+    {
+      "id": "BOTTL",
+      "name": "a clear glass bottle",
+      "synonyms": ["bottle", "pitcher", "conta"],
+      "description": "A transparent glass bottle, possibly for liquids.",
+      "initialLocation": "KITCH",
+      "flags": {
+        "isContainer": true,
+        "isPortable": true,
+        "isOpenable": true,
+        "isOpen": true,
+        "isTransparent": true
+      },
+      "contains": ["WATER"]
+    },
+    {
+      "id": "WATER",
+      "name": "some water",
+      "synonyms": ["water","liqui","h2o"],
+      "description": "Just ordinary water.",
+      "initialLocation": "BOTTL",
+      "flags": {
+        "isDrinkable": true,
+        "isPortable": true,
+        "isLiquid": true
+      }
+    },
+    {
+      "id": "RUG",
+      "name": "a large oriental rug",
+      "synonyms": ["rug","carpe","orien"],
+      "description": "A large oriental rug lying by the fireplace.",
+      "initialLocation": "LROOM",
+      "flags": {
+        "isPortable": false,
+        "isFixedInPlace": true
+      }
+    },
+    {
+      "id": "PAPER",
+      "name": "a piece of paper",
+      "synonyms": ["paper","news","issue","magaz"],
+      "description": "An old edition of US News & Dungeon Report.",
+      "initialLocation": "LROOM",
+      "flags": {
+        "isPortable": true,
+        "isReadable": true,
+        "isFlammable": true
+      }
+    },
+    {
+      "id": "SWORD",
+      "name": "an elvish sword",
+      "synonyms": ["sword","orcrist","glamd","elvis blade"],
+      "description": "An elvish sword of great antiquity, rumored to glow in danger.",
+      "initialLocation": "LROOM",
+      "flags": {
+        "isPortable": true,
+        "isWeapon": true,
+        "glowInDark": true
+      }
+    },
+    {
+      "id": "LAMP",
+      "name": "a brass lantern",
+      "synonyms": ["lamp","lantern","brass lamp"],
+      "description": "A battery-powered brass lantern.",
+      "initialLocation": "LROOM",
+      "flags": {
+        "isPortable": true,
+        "isLightSource": true,
+        "isLit": false
+      }
+    },
+    {
+      "id": "BRICK",
+      "name": "a clay brick",
+      "synonyms": ["brick","square","clay"],
+      "description": "A clay brick that might explode under certain conditions.",
+      "initialLocation": "ATTIC",
+      "flags": {
+        "isPortable": true,
+        "isFlammable": true
+      },
+      "onBurn": "BRICK_FUNCTION"
+    },
+    {
+      "id": "ROPE",
+      "name": "a large coil of rope",
+      "synonyms": ["rope","coil","hemp"],
+      "description": "A sturdy coil of rope, possibly useful for climbing or tying.",
+      "initialLocation": "ATTIC",
+      "flags": {
+        "isPortable": true,
+        "isTieable": true
+      }
+    },
+    {
+      "id": "KNIFE",
+      "name": "a nasty-looking knife",
+      "synonyms": ["knife","blade"],
+      "description": "A sharp, nasty-looking knife.",
+      "initialLocation": "ATTIC",
+      "flags": {
+        "isPortable": true,
+        "isWeapon": true
+      }
+    },
+    {
+      "id": "TDOOR",
+      "name": "a trap door",
+      "synonyms": ["trap door","trapd","tdoor"],
+      "description": "A trap door in the floor, barred from above.",
+      "initialLocation": "CELLA",
+      "flags": {
+        "isPortable": false,
+        "isFixedInPlace": true,
+        "isDoor": true,
+        "isOpenable": true,
+        "isOpen": false
+      }
+    },
+
+    {
+      "id": "TBASK",
+      "name": "a basket at the top of the shaft",
+      "synonyms": ["basket","tbask","cage"],
+      "description": "A sturdy iron basket hanging from the chain at the top of the shaft.",
+      "initialLocation": "TSHAF",
+      "flags": {
+        "isContainer": true,
+        "isOpen": true,
+        "isPortable": false
+      },
+      "onUse": "DUMBWAITER_FUNCTION"
+    },
+    {
+      "id": "FBASK",
+      "name": "a basket at the bottom of the shaft",
+      "synonyms": ["basket","fbask","cage"],
+      "description": "Another iron basket on the chain, down below.",
+      "initialLocation": "BSHAF",
+      "flags": {
+        "isContainer": true,
+        "isOpen": true,
+        "isPortable": false
+      },
+      "onUse": "DUMBWAITER_FUNCTION"
+    },
+    {
+      "id": "BAT",
+      "name": "a giant vampire bat",
+      "synonyms": ["bat","vampire","vampi"],
+      "description": "A deranged giant vampire bat, swooping from the ceiling.",
+      "initialLocation": "BATS",
+      "flags": {
+        "isPortable": false,
+        "isNPC": true
+      },
+      "onEnterRoom": "FLY_ME"
+    },
+    {
+      "id": "TROLL",
+      "name": "a nasty-looking troll",
+      "synonyms": ["troll","monster"],
+      "description": "A nasty-looking troll with a bloody axe.",
+      "initialLocation": "MTROL",
+      "flags": {
+        "isPortable": false,
+        "isNPC": true,
+        "isVillain": true
+      },
+      "initialObjects": ["AXE"]
+    },
+    {
+      "id": "AXE",
+      "name": "a bloody axe",
+      "synonyms": ["axe","bloody axe"],
+      "description": "A bloody axe, presumably used by the troll.",
+      "initialLocation": "TROLL",
+      "flags": {
+        "isPortable": true,
+        "isWeapon": true
+      }
+    },
+    {
+      "id": "THIEF",
+      "name": "a suspicious-looking individual",
+      "synonyms": ["thief","robbe","crook","bandi","bagma"],
+      "description": "A suspicious-looking individual with a bag, holding a vicious stiletto.",
+      "initialLocation": null,
+      "flags": {
+        "isPortable": false,
+        "isNPC": true,
+        "isVillain": true
+      },
+      "initialObjects": ["STILL"]
+    },
+    {
+      "id": "STILL",
+      "name": "a vicious stiletto",
+      "synonyms": ["stiletto","knife"],
+      "description": "A vicious-looking stiletto, used by the thief.",
+      "initialLocation": "THIEF",
+      "flags": {
+        "isPortable": true,
+        "isWeapon": true
+      }
+    },
+
+    {
+      "id": "SAFE",
+      "name": "a rusty old box",
+      "synonyms": ["safe","box"],
+      "description": "A rusty old box embedded in the wall.",
+      "initialLocation": "SAFE",
+      "flags": {
+        "isPortable": false,
+        "isFixedInPlace": true,
+        "isContainer": true,
+        "isOpenable": true,
+        "isLocked": false
+      },
+      "contains": ["CARD","CROWN"],
+      "onOpen": "SAFE_FUNCTION"
+    },
+    {
+      "id": "SSLOT",
+      "name": "a small slot",
+      "synonyms": ["slot","hole"],
+      "description": "A narrow slot in the front of the rusty box.",
+      "initialLocation": "SAFE",
+      "flags": {
+        "isPortable": false,
+        "isFixedInPlace": true,
+        "isOpen": true
+      }
+    },
+    {
+      "id": "CARD",
+      "name": "a warning card",
+      "synonyms": ["card","note"],
+      "description": "A card reading: 'Detonation of explosives is strictly prohibited here.'",
+      "initialLocation": "SAFE",
+      "flags": {
+        "isPortable": true,
+        "isReadable": true,
+        "isFlammable": true
+      }
+    },
+    {
+      "id": "CROWN",
+      "name": "Lord Dimwit's gaudy crown",
+      "synonyms": ["crown","gaudy"],
+      "description": "An excessively gaudy crown of Lord Dimwit Flathead.",
+      "initialLocation": "SAFE",
+      "flags": {
+        "isPortable": true,
+        "value": 15
+      }
+    },
+
+    {
+      "id": "BRACE",
+      "name": "a sapphire-encrusted bracelet",
+      "synonyms": ["bracelet","brace","sapph"],
+      "description": "A bracelet encrusted with sapphires.",
+      "initialLocation": "BOOM",
+      "flags": {
+        "isPortable": true,
+        "value": 5
+      }
+    },
+    {
+      "id": "STICK",
+      "name": "a broken sharp stick",
+      "synonyms": ["stick","sharp stick","broke"],
+      "description": "A wooden stick, broken and sharp.",
+      "initialLocation": "DOCK",
+      "flags": {
+        "isPortable": true
+      },
+      "onWave": "STICK_FUNCTION"
+    },
+
+    {
+      "id": "BALLO",
+      "name": "a large wicker balloon basket",
+      "synonyms": ["balloon","ballo","basket","wicker basket"],
+      "description": "A heavy wicker basket with a cloth bag and a metal receptacle.",
+      "initialLocation": "VLBOT",
+      "flags": {
+        "isPortable": false,
+        "isVehicle": true,
+        "isOpen": true
+      },
+      "contains": ["CBAG","BROPE","RECEP"]
+    },
+    {
+      "id": "CBAG",
+      "name": "a cloth bag (balloon envelope)",
+      "synonyms": ["bag","cloth bag"],
+      "description": "A large cloth bag that can inflate with hot air.",
+      "initialLocation": "BALLO",
+      "flags": {
+        "isPortable": false,
+        "isFixedInPlace": true
+      }
+    },
+    {
+      "id": "BROPE",
+      "name": "a braided wire rope",
+      "synonyms": ["wire","rope","brope"],
+      "description": "A thin but strong braided wire, used for tethering the balloon.",
+      "initialLocation": "BALLO",
+      "flags": {
+        "isPortable": false,
+        "isTieable": true
+      },
+      "onTie": "WIRE_FUNCTION"
+    },
+    {
+      "id": "RECEP",
+      "name": "a metal receptacle",
+      "synonyms": ["receptacle","metal recep"],
+      "description": "A metal container inside the balloon basket, presumably for fuel.",
+      "initialLocation": "BALLO",
+      "flags": {
+        "isPortable": false,
+        "isContainer": true,
+        "isOpenable": true,
+        "isOpen": true
+      }
+    },
+    {
+      "id": "DBALL",
+      "name": "a balloon, broken into pieces",
+      "synonyms": ["balloon","dball","broke"],
+      "description": "A large balloon, now ripped and destroyed.",
+      "initialLocation": null,
+      "flags": {
+        "isPortable": true,
+        "isFlammable": true
+      }
+    },
+
+    {
+      "id": "IBOAT",
+      "name": "a folded plastic inflatable boat",
+      "synonyms": ["boat","plastic","iboat"],
+      "description": "A folded pile of plastic with a small valve attached.",
+      "initialLocation": "DOCK",
+      "flags": {
+        "isPortable": true,
+        "isBurnable": true,
+        "isBoat": true
+      },
+      "onInflate": "IBOAT_FUNCTION"
+    },
+    {
+      "id": "DBOAT",
+      "name": "a plastic boat (with a large hole)",
+      "synonyms": ["boat","plastic","dboat","hole"],
+      "description": "A boat with a large hole, useless unless patched.",
+      "initialLocation": null,
+      "flags": {
+        "isPortable": true,
+        "isBurnable": true,
+        "isBoat": true
+      },
+      "onPlug": "DBOAT_FUNCTION"
+    },
+    {
+      "id": "RBOAT",
+      "name": "an inflated magic boat",
+      "synonyms": ["boat","rboat","magic boat"],
+      "description": "A fully inflated plastic boat from Frobozz Magic Boat Company.",
+      "initialLocation": null,
+      "flags": {
+        "isPortable": true,
+        "isBoat": true,
+        "isOpen": true,
+        "canFloatOnWater": true
+      },
+      "onDeflate": "RBOAT_FUNCTION"
+    },
+    {
+      "id": "PUMP",
+      "name": "a small hand-held air pump",
+      "synonyms": ["pump","airpu"],
+      "description": "A small pump for inflating items.",
+      "initialLocation": "RESEN",
+      "flags": {
+        "isPortable": true,
+        "isTool": true
+      }
+    },
+
+    {
+      "id": "FUSE",
+      "name": "a coil of thin shiny wire",
+      "synonyms": ["fuse","coil","wire","shiny","thin"],
+      "description": "A coil of wire, possibly usable as a fuse.",
+      "initialLocation": "STREA",
+      "flags": {
+        "isPortable": true,
+        "isFlammable": true
+      },
+      "onBurn": "FUSE_FUNCTION"
+    },
+    {
+      "id": "PUTTY",
+      "name": "some gunk or glue-like putty",
+      "synonyms": ["putty","gunk","glue","visco"],
+      "description": "A viscous material for patching holes.",
+      "initialLocation": "TUBE",
+      "flags": {
+        "isPortable": true,
+        "isTool": true
+      }
+    },
+    {
+      "id": "TUBE",
+      "name": "a tube of putty",
+      "synonyms": ["tube","toothpaste","putty tube"],
+      "description": "A tube that looks like toothpaste but contains thick putty.",
+      "initialLocation": "MAINT",
+      "flags": {
+        "isPortable": true,
+        "isContainer": true,
+        "isOpenable": false
+      },
+      "contains": ["PUTTY"]
+    },
+
+    {
+      "id": "KEYS",
+      "name": "a set of skeleton keys",
+      "synonyms": ["keys","skeleton keys"],
+      "description": "Keys that might unlock a grating or door.",
+      "initialLocation": "MAZE5",
+      "flags": {
+        "isPortable": true,
+        "isTool": true
+      }
+    },
+    {
+      "id": "WRENC",
+      "name": "a wrench",
+      "synonyms": ["wrench"],
+      "description": "A sturdy wrench for loosening bolts.",
+      "initialLocation": "MAINT",
+      "flags": {
+        "isPortable": true,
+        "isTool": true
+      }
+    },
+    {
+      "id": "SCREW",
+      "name": "a screwdriver",
+      "synonyms": ["screwdriver","screw"],
+      "description": "A small screwdriver from the maintenance gear.",
+      "initialLocation": "MAINT",
+      "flags": {
+        "isPortable": true,
+        "isTool": true
+      }
+    },
+    {
+      "id": "BOLT",
+      "name": "a large bolt",
+      "synonyms": ["bolt","nut"],
+      "description": "A large bolt controlling water flow at the dam.",
+      "initialLocation": "DAM",
+      "flags": {
+        "isPortable": false,
+        "isFixedInPlace": true
+      },
+      "onTurn": "BOLT_FUNCTION"
+    },
+
+    {
+      "id": "EMERA",
+      "name": "a large emerald",
+      "synonyms": ["emerald","emera"],
+      "description": "A brilliant green emerald, about the size of a hen's egg.",
+      "initialLocation": "BUOY",
+      "flags": {
+        "isPortable": true,
+        "value": 10
+      }
+    },
+    {
+      "id": "BAR",
+      "name": "a platinum bar",
+      "synonyms": ["bar","plati"],
+      "description": "A large bar of platinum, quite heavy.",
+      "initialLocation": "ECHO",
+      "flags": {
+        "isPortable": true,
+        "isSacred": true,
+        "value": 12
+      }
+    },
+    {
+      "id": "PEARL",
+      "name": "a pearl necklace",
+      "synonyms": ["pearl","necklace"],
+      "description": "A necklace of hundreds of large pearls.",
+      "initialLocation": "MPEAR",
+      "flags": {
+        "isPortable": true,
+        "value": 9
+      }
+    },
+    {
+      "id": "GRAIL",
+      "name": "a valuable grail",
+      "synonyms": ["grail"],
+      "description": "An extremely valuable grail, perhaps original.",
+      "initialLocation": "MGRAI",
+      "flags": {
+        "isPortable": true,
+        "isContainer": false,
+        "value": 10
+      }
+    },
+
+    {
+      "id": "GNOME",
+      "name": "a nervous Volcano Gnome",
+      "synonyms": ["gnome","volcano gnome"],
+      "description": "A small, nervous gnome who glances at his watch.",
+      "initialLocation": null,
+      "flags": {
+        "isPortable": false,
+        "isNPC": true
+      },
+      "onTalk": "GNOME_FUNCTION"
+    },
+    {
+      "id": "GHOST",
+      "name": "a lurking ghost",
+      "synonyms": ["ghost","spirit","fiend"],
+      "description": "A sinister ghost drifting about, moaning quietly.",
+      "initialLocation": "LLD1",
+      "flags": {
+        "isPortable": false,
+        "isNPC": true
+      },
+      "onAttack": "GHOST_FUNCTION"
+    },
+
+    {
+      "id": "EVERY",
+      "name": "everything",
+      "synonyms": ["every","all"],
+      "description": "A pseudo-object for 'take all' commands.",
+      "flags": {
+        "isPseudoObject": true
+      }
+    },
+    {
+      "id": "VALUA",
+      "name": "valuables",
+      "synonyms": ["valuables","treas"],
+      "description": "A pseudo-object for 'take all valuables' commands.",
+      "flags": {
+        "isPseudoObject": true
+      }
+    },
+
+    {
+      "id": "HEADS",
+      "name": "four heads on poles",
+      "synonyms": ["heads","poles","head","pole"],
+      "description": "Four decapitated heads mounted on poles. Disturbing.",
+      "initialLocation": "TOMB",
+      "flags": {
+        "isPortable": false,
+        "isFixedInPlace": true
+      }
+    },
+    {
+      "id": "TOMB_OBJ",
+      "name": "a large marble tomb",
+      "synonyms": ["tomb","grave"],
+      "description": "A marble tomb inscribed with 'Feel Free.'",
+      "initialLocation": "TOMB",
+      "flags": {
+        "isPortable": false,
+        "isFixedInPlace": true
+      }
+    },
+    {
+      "id": "COKES",
+      "name": "a pile of empty Coke bottles",
+      "synonyms": ["coke","bottles","cokes"],
+      "description": "Many empty Coke bottles evidently from the implementers.",
+      "initialLocation": "TOMB",
+      "flags": {
+        "isPortable": true
+      }
+    },
+    {
+      "id": "LISTS",
+      "name": "a stack of line-printer listings",
+      "synonyms": ["lists","paper","print"],
+      "description": "A gigantic pile of line-printer output, mostly unintelligible.",
+      "initialLocation": "TOMB",
+      "flags": {
+        "isPortable": true,
+        "isFlammable": true,
+        "isReadable": true
+      }
+    }
+  ]
+}
